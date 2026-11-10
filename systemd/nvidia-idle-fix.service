@@ -1,0 +1,14 @@
+[Unit]
+Description=Napraw utkniecie NVIDIA GPU w wysokim stanie mocy (P0) bez podlaczonego ekranu
+After=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/nvidia-smi -pm 1
+ExecStart=/usr/bin/nvidia-smi -lgc 210,210
+ExecStart=/bin/sleep 2
+ExecStart=/usr/bin/nvidia-smi -rgc
+
+[Install]
+WantedBy=multi-user.target

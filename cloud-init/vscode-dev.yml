@@ -1,0 +1,22 @@
+﻿#cloud-config
+ssh_authorized_keys: [ WSTAW_SWOJ_KLUCZ_SSH ]
+
+ssh_pwauth: false
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - git
+  - build-essential
+  - curl
+  - wget
+  - vim
+  - tmux
+
+runcmd:
+  - curl -fsSL https://code-server.dev/install.sh | sh
+  - systemctl enable code-server@root
+  - systemctl start code-server@root
+
+final_message: "Cloud-init provisioning finished (vscode-dev)"

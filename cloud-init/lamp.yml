@@ -1,0 +1,22 @@
+﻿#cloud-config
+ssh_authorized_keys: [ WSTAW_SWOJ_KLUCZ_SSH ]
+
+ssh_pwauth: false
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - apache2
+  - mysql-server
+  - php
+  - php-mysql
+  - libapache2-mod-php
+
+runcmd:
+  - systemctl enable apache2
+  - systemctl start apache2
+  - systemctl enable mysql
+  - systemctl start mysql
+
+final_message: "Cloud-init provisioning finished (lamp)"

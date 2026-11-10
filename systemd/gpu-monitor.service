@@ -1,0 +1,11 @@
+[Unit]
+Description=GPU Monitor HTTP Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/gpu-monitor/gpu-monitor.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

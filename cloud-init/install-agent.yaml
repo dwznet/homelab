@@ -1,0 +1,11 @@
+#cloud-config
+package_update: true
+packages:
+  - qemu-guest-agent
+
+ssh_pwauth: false
+disable_root: false
+
+runcmd:
+  - systemctl enable qemu-guest-agent
+  - systemctl start qemu-guest-agent

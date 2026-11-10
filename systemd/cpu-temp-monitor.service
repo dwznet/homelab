@@ -1,0 +1,12 @@
+[Unit]
+Description=CPU Temperature Monitor HTTP Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/cpu-temp-monitor/cpu-temp-monitor.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

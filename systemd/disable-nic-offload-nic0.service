@@ -1,0 +1,12 @@
+[Unit]
+Description=Disable NIC offloading for Intel e1000e interface nic0
+After=network.target
+
+[Service]
+Type=oneshot
+# Disable all offloading features for Intel e1000e
+ExecStart=/sbin/ethtool -K nic0 gso off gro off tso off tx off rx off rxvlan off txvlan off sg off
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

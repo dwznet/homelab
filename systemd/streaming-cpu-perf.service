@@ -1,0 +1,11 @@
+[Unit]
+Description=Streaming CPU Performance Tuning (Socket 1 - CT 109)
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/streaming-cpu-perf.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

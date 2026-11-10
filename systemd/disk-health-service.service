@@ -1,0 +1,14 @@
+[Unit]
+Description=Disk SMART Health HTTP Service (port 9502)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/bin/disk-health-service.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
